@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-div">
+      <div class="header-esquerda">
+        <ion-img class="logo" src="../../assets/icon/Logo projeto de PAM.png" alt="Lembre, logotipo"></ion-img>
+        <h1 class="nomeApp">Relembre</h1>
+      </div>
+      <div class="header-direita">
+        <ion-button shape="round" class="estilos-botao header-botao">
+          <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" fill="clear" class="estilos-botao header-botao">
+          <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <input id="inputImg" type="file" accept="image/*" hidden (change)="fileSelecionado($event)">
+  <div class="conteudo-pagina">
+    
+    <!-- Card de edição - Aparece quando está editando uma tarefa -->
+    <div *ngIf="editandoTarefa" class="modo-edicao">
+      <ion-card>
+        <ion-card-header class="header-cards">
+          <h1 class="titulo-cards">Editando Tarefa</h1>
+        </ion-card-header>
+        <ion-card-content class="card-editar-content">
+         
+          <!-- botão de prioridade -->
+          <h1 class="titulo-cards-2">Prioridade</h1>
+          <hr class="barra-divisora" />
+          <div id="barras-prioridade">  <!-- Estilizçaõ dos botões-->
+            <ion-button class="barra-prioridade-alta"
+                        shape="round"
+                        fill="clear"
+                        (click)="prioridadeEditada = 'alta'" 
+                        [class.selecionado]="prioridadeEditada === 'alta'">  <!--Aqui ele recolhe o valor (da prioridade) e guarda esse valor para ser exibido  -->
+            </ion-button>
+            <ion-button class="barra-prioridade-media"
+                        shape="round"
+                        fill="clear"
+                        (click)="prioridadeEditada = 'media'"
+                        [class.selecionado]="prioridadeEditada === 'media'">
+            </ion-button>
+            <ion-button class="barra-prioridade-baixa"
+                        shape="round"
+                        fill="clear"
+                        (click)="prioridadeEditada = 'baixa'"
+                        [class.selecionado]="prioridadeEditada === 'baixa'">
+            </ion-button>
+          </div>
+
+          <!-- Parte da imagem  -->
+          <h1 class="titulo-cards-2">Imagem</h1>
+          <hr class="barra-divisora" />
+          
+          <div *ngIf="imagemEditada" style="display: flex; flex-direction: row; margin-bottom: 10px;">  <!-- Organiza o direcionamento da imagem e a transforma em base64  -->
+            <img [src]="imagemEditada" style="width:150px; border-radius:12px; margin-right: 10px;">
+            <ion-button fill="clear" color="danger" class="estilos-botao" (click)="removerImagemEdicao()"> <!-- Aqui aciona o método (se for clicado), para excluir a imagem -->
+              Remover Imagem
+            </ion-button>
+          </div>
+
+          <ion-button fill="clear" class="estilos-botao" (click)="abrirInputImagemEdicao()"> <!--Se clicado, aciona o método la do tp para abrir a janela de imagens, para o usuário selecionar  -->
+            {{ imagemEditada ? 'Alterar Imagem' : 'Selecionar Imagem' }}
+          </ion-button>
+
+          <!-- Parte do card na edição -->
+          <!-- Título -->
+          <h1 class="titulo-cards-2">Título</h1>
+          <hr class="barra-divisora" />
+          <ion-input class="inputs-p"
+            aria-label="Título"
+            clear-input="true"
+            placeholder="Aqui vai seu título"
+            [(ngModel)]="tituloEditado">
+          </ion-input>
+
+          <!-- Descrição -->
+          <h1 class="titulo-cards-2">Descrição</h1>
+          <hr class="barra-divisora" />
+          <ion-input class="inputs-p"
+            aria-label="Descrição"
+            clear-input="true"
+            placeholder="Aqui vai a descrição da sua tarefa"
+            [(ngModel)]="descricaoEditada">
+          </ion-input>
+
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Botões cancelar e salvar -->
+       <!-- Ambos se forem pressionados acionam o método la do tp, para cancelar ou salvar a tarefa -->
+      <div class="botoes-edicao">
+        <ion-button fill="clear" color="success" class="estilos-botao botoes-edicao-forma" (click)="salvarEdicao()">
+          <ion-icon slot="start" name="save-outline"></ion-icon>
+          Salvar
+        </ion-button>
+        <ion-button fill="clear" color="danger" class="estilos-botao botoes-edicao-forma" (click)="cancelarEdicao()">
+          <ion-icon slot="start" name="close-outline"></ion-icon>
+          Cancelar
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Essa parte aparece quando NÃO está editando -->
+    <div *ngIf="!editandoTarefa">
+      
+      <!-- Tarefa 1 (a de exemplo), sem a manipuação do tp -->
+      <ion-card>
+        <ion-card-header class="header-cards">
+          <div class="barra-prioridade"
+            [ngClass]="{
+              'barra-prioridade-baixa': tarefa1.prioridade === 'baixa',
+              'barra-prioridade-media': tarefa1.prioridade === 'media',
+              'barra-prioridade-alta': tarefa1.prioridade === 'alta'
+            }">
+          </div>
+          <div class="botoes-header-cards">
+            <ion-button shape="round" class="estilos-botao" (click)="removerTarefa(tarefa1)">
+              <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-button shape="round" class="estilos-botao" (click)="duplicarTarefa(tarefa1)">
+              <ion-icon slot="icon-only" name="duplicate-outline"></ion-icon>
+            </ion-button>
+            <ion-button shape="round" class="estilos-botao" (click)="editarTarefa(tarefa1)">
+              <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-header>
+        <ion-card-content class="card-content">
+          <img *ngIf="tarefa1.imagem" [src]="tarefa1.imagem" class="imagem-tarefa">
+          <h1 class="titulo-cards">{{ tarefa1.titulo }}</h1>
+          <ion-button shape="round" size="small" class="estilos-botao" (click)="tarefa1.abrir = !tarefa1.abrir">
+            <ion-icon [name]="tarefa1.abrir ? 'chevron-down-outline' : 'chevron-back-outline'"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+        <div class="detalhes" *ngIf="tarefa1.abrir">
+          <hr/>
+          <p>{{ tarefa1.descricao }}</p>
+        </div>
+      </ion-card>
+
+      <!-- Tarefas que são criadas apartir do typescript -->
+       <!-- no tab1 ele puxa essas informações aqui descritas para manipular os dados e criar um card novo  -->
+      <ion-card *ngFor="let tarefa of tarefasExtras">
+        <ion-card-header class="header-cards">
+          <div [ngClass]="{
+            'barra-prioridade-alta': tarefa.prioridade === 'alta',
+            'barra-prioridade-media': tarefa.prioridade === 'media',
+            'barra-prioridade-baixa': tarefa.prioridade === 'baixa'
+          }"></div>
+          <div class="botoes-header-cards">
+            <ion-button shape="round" class="estilos-botao" (click)="removerTarefa(tarefa)">
+              <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-button shape="round" class="estilos-botao" (click)="duplicarTarefa(tarefa)">
+              <ion-icon slot="icon-only" name="duplicate-outline"></ion-icon>
+            </ion-button>
+            <ion-button shape="round" class="estilos-botao" (click)="editarTarefa(tarefa)">
+              <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-header>
+        <ion-card-content class="card-content">
+          <img *ngIf="tarefa.imagem" [src]="tarefa.imagem" class="imagem-tarefa">
+          <h1 class="titulo-cards">{{ tarefa.titulo }}</h1>
+          <ion-button shape="round" size="small" class="estilos-botao" (click)="tarefa.abrir = !tarefa.abrir">
+            <ion-icon [name]="tarefa.abrir ? 'chevron-down-outline' : 'chevron-back-outline'"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+        <div class="detalhes" *ngIf="tarefa.abrir">
+          <p>{{ tarefa.descricao }}</p>
+        </div>
+      </ion-card>
+      
+    </div>
+
+  </div>
+</ion-content>

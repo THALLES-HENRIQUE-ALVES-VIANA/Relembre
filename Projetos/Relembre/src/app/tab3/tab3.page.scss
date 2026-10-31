@@ -1,0 +1,105 @@
+/*Cabeçalho da página (logo, título, etc)*/
+.header-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left{
+  display: flex;
+  flex-direction: row;
+}
+
+.header-right{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.logo{
+  width: 40px;
+  margin: 10px;
+}
+
+.nomeApp{
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #f3e3d4;
+}
+
+.button-header{
+  margin: 5px;
+}
+
+/*Conteúdo da página (cards e outros)*/
+.page-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+  padding: 16px; 
+}
+
+.content-card{
+  background-color: #005e65;
+  border-radius: 20px;
+  color: #f3e3d4;
+  width: 100%;
+  height: fit-content;
+  margin: 2%;
+  border-radius: 20px;
+}
+
+.titulo-cards{
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #f3e3d4;
+  margin: 0;
+}
+
+.header-cards {
+  border-bottom: 1px solid #f3e3d43b; 
+}
+
+ion-list {
+  border-radius: 20px;
+  background: transparent;
+  margin: 10px 0px;
+  padding: 0;
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: #f3e3d43b;
+  --color: #f3e3d4;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 0;
+  margin: 15px 0px;
+}
+
+.button-style{
+  --background: #005e65;
+  --box-shadow: 0px 4px 0 #012e41;
+  --border-color: #012e41;
+  --border-style: solid;
+  --border-width: 1px;
+}
+
+#button-trocar{
+  --background: linear-gradient(to right, #1e7caf, #50cdd6, #1e7caf);
+}
+
+#button-sair{
+  --background: linear-gradient(to right, #ad2525, #e43f3f, #ad2525);
+}
+
+ion-icon{
+  color: #f3e3d4;
+}

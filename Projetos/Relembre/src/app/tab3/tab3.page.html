@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-div">
+      <div class="header-left">
+        <ion-img class="logo" src="../../assets/icon/Logo projeto de PAM.png" alt="Lembre, logotipo"></ion-img>
+        <h1 class="nomeApp">Relembre</h1>
+      </div>
+      <div class="header-right">
+        <ion-button shape="round" class="button-style button-header">
+          <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" fill="clear" class="button-style button-header">
+          <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-content">
+    <ion-card class="content-card">
+      <ion-card-header class="header-cards">
+        <ion-card-title class="titulo-cards">Conta</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item button>
+            <ion-icon size="large" name="person-circle-outline" slot="start"></ion-icon>
+            <ion-label>Perfil</ion-label>
+          </ion-item>
+          <ion-item button>
+            <ion-icon size="large" name="add-circle-outline" slot="start"></ion-icon>
+            <ion-label>Criar Nova Conta</ion-label>
+          </ion-item>
+          <ion-item button id="button-trocar">
+            <ion-icon size="large" name="swap-horizontal-outline" slot="start"></ion-icon>
+            <ion-label>Trocar de Conta</ion-label>
+          </ion-item>
+          <ion-item button id="button-sair">
+            <ion-icon size="large" name="log-out-outline" slot="start"></ion-icon>
+            <ion-label>Sair</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="content-card">
+      <ion-card-header class="header-cards">
+        <ion-card-title class="titulo-cards">Preferências</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item button>
+            <ion-icon size="large" name="color-palette-outline" slot="start"></ion-icon>
+            <ion-label>Configurações Visuais</ion-label>
+          </ion-item>
+          <ion-item button>
+            <ion-icon size="large" name="notifications-outline" slot="start"></ion-icon>
+            <ion-label>Notificações</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon size="large" name="language-outline" slot="start"></ion-icon>
+            <ion-label>Idioma</ion-label>
+            <ion-select placeholder="Português" slot="end">
+              <ion-select-option value="pt">Português</ion-select-option>
+              <ion-select-option value="en">Inglês</ion-select-option>
+              <ion-select-option value="es">Espanhol</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item button>
+            <ion-icon size="large" name="help-buoy-outline" slot="start"></ion-icon>
+            <ion-label>Ajuda</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-div">
+      <div class="header-esquerda">
+        <ion-img class="logo" src="../../assets/icon/Logo projeto de PAM.png" alt="Lembre, logotipo"></ion-img>
+        <h1 class="nomeApp">Relembre</h1>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="conteudo-pagina">
+    <ion-card>
+      <ion-card-header id="cabecalho">
+        <h1 class="titulo-cards">Crie um novo card</h1>
+        <div id="subtitulo-card" class="card-content">
+          <p>Adicione as informações e configure da maneira que preferir, então clique em adicionar para adicionar o novo lembrete à página inicial.</p>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <h1 class="titulo-cards-2">Prioridade</h1>
+        <hr />
+        <div id="barras-prioridade">
+          <ion-button class="barra-prioridade-alta"
+                      shape="round"
+                      fill="clear"
+                      (click)="prioridade = 'alta'"
+                      [class]="prioridade === 'alta' ? 'selecionado' : ''">
+          </ion-button>
+
+          <ion-button class="barra-prioridade-media"
+                      shape="round"
+                      fill="clear"
+                      (click)="prioridade = 'media'"
+                      [class]="prioridade === 'media' ? 'selecionado' : ''">
+          </ion-button>
+          <ion-button class="barra-prioridade-baixa"
+                      shape="round"
+                      fill="clear"
+                      (click)="prioridade = 'baixa'"
+                      [class]="prioridade === 'baixa' ? 'selecionado' : ''">
+          </ion-button>
+        </div>
+      
+        <h1 class="titulo-cards-2">Imagem</h1>
+        <hr />
+        <div id="imagem-botao">
+          <input id="inputImagem"
+                 type="file"
+                 hidden
+                 accept="image/*"
+                 (change)="fileSelecionado($event)" />
+          <div *ngIf="imagemTemp" style="margin-top: 10px;">
+            <img [src]="imagemTemp" style="width:150px; border-radius:12px;">
+          </div>
+          <ion-button fill="clear" id="botao-escolher-img" class="estilos-botao" (click)="abrirInputImagem()">Selecionar imagem</ion-button>
+        </div>
+
+        <h1 class="titulo-cards-2">Título</h1>
+        <hr />
+        <ion-input class="inputs-p"
+          aria-label="Título"
+          clear-input="true"
+          placeholder="Aqui vai seu título"
+          [(ngModel)]="titulo">
+        </ion-input>
+
+        <h1 class="titulo-cards-2">Descrição</h1>
+        <hr />
+        <ion-input class="inputs-p"
+          aria-label="Descrição"
+          clear-input="true"
+          placeholder="Aqui vai a descrição da sua tarefa"
+          [(ngModel)]="descricao">
+        </ion-input>
+      </ion-card-content>
+    </ion-card>
+
+<ion-card id="card-botao">
+  <ion-card-content id="card-content-2">
+    <ion-button id="tamanho-botao"
+                shape="round"
+                expand="block"
+                class="estilos-botao"
+                (click)="adicionarTarefa()"> 
+      <h1 id="titulo-botao" class="titulo-cards-2">Adicionar</h1>
+    </ion-button>
+  </ion-card-content>
+</ion-card>

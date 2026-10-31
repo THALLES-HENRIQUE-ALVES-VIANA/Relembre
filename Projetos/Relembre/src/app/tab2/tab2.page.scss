@@ -1,0 +1,197 @@
+/*Cabeçalho da página (logo, título, etc)*/
+.header-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-esquerda{
+  display: flex;
+  flex-direction: row;
+}
+
+.header-direita{
+  display: flex;
+  flex-direction: row;
+}
+
+.logo{
+  width: 40px;
+  margin: 10px;
+}
+
+.nomeApp{
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #f3e3d4;
+}
+
+.header-botao{
+  margin: 5px;
+}
+
+/*Conteúdo da página (cards e outros)*/
+.conteudo-pagina{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px; 
+}
+
+ion-card{
+  background-color: #005e65;
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  color: #f3e3d4;
+}
+
+ion-icon{
+  color: #f3e3d4;
+}
+
+.titulo-cards-2{
+  flex-grow: 1;
+  font-size: 4vw;
+  font-weight: bolder;
+  color: #f3e3d4;
+  margin: 0;
+}
+
+.titulo-cards{
+  flex-grow: 1;
+  font-size: 8vw;
+  font-weight: bolder;
+  color: #f3e3d4;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  font-size: 3vw;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.estilos-botao{
+  --background: #005e65;
+  --box-shadow: 0px 4px 0 #012e41;
+  --border-color: #012e41;
+  --border-style: solid;
+  --border-width: 1px;
+}
+
+/*Barras de Prioridade*/
+
+.barra-prioridade-baixa, .barra-prioridade-media, .barra-prioridade-alta{
+  flex-grow: 1;
+  height: 8vw;
+  border-radius: 10vw;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #012e41;
+  box-shadow: 0px 4px 0 #012e41;
+  cursor: pointer;
+} 
+
+.barra-prioridade-baixa{
+  margin-left: 20px;
+  background: linear-gradient(to right, #27d3cd, #176772);
+  color: #fff;
+}
+
+.barra-prioridade-media{
+  background: linear-gradient(to right, #2797d3, #175272);
+  color: #fff;
+}
+
+.barra-prioridade-alta{
+  margin-right: 20px;
+  background: linear-gradient(to right, #2766d3, #174372);
+  color: #fff;
+}
+
+/*Ion Header*/
+
+hr {
+  width: 100%;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  background-color:#005e65;
+}
+
+#barras-prioridade {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+.card-content {
+  margin: 10px;
+  padding: 20px;
+  background-color: #024a5973;
+  border-radius: 15px;
+}
+
+#imagem-botao{
+  display: flex;
+  flex-direction: row;
+}
+
+#botao-escolher-img{
+  color: #f3e3d4;
+  margin-bottom: 20px;
+}
+
+#card-content-2{
+  padding: 2vw;
+}
+
+#subtitulo-card {
+  margin-bottom: 0;
+}
+
+.inputs-p {
+  margin-bottom: 20px;
+}
+
+ion-button {
+  height: 60px;
+}
+
+#card-botao {
+  width: 50%;
+  height: 15vw;
+  border-radius: 12vw;
+}
+
+#tamanho-botao{
+  width: 100%;
+  height: 10vw;
+  margin: 0;
+}
+
+#titulo-botao {
+  font-size: 4vw;
+}
+
+// Estilo para mostrar qual prioridade está selecionada
+.barra-prioridade-alta.selecionado {
+  border: 2px solid #ff0000;
+}
+
+.barra-prioridade-media.selecionado {
+  border: 2px solid #ffa500;
+}
+
+.barra-prioridade-baixa.selecionado {
+  border: 2px solid #008000;
+}

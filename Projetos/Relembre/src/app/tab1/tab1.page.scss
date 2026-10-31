@@ -1,0 +1,254 @@
+/*Cabeçalho da página (logo, título, etc)*/
+.header-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-esquerda{
+  display: flex;
+  flex-direction: row;
+}
+
+.header-direita{
+  display: flex;
+  flex-direction: row;
+}
+
+.logo{
+  width: 40px;
+  margin: 10px;
+}
+
+.nomeApp{
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #f3e3d4;
+}
+
+.header-botao{
+  margin: 5px;
+}
+
+/*Conteúdo da página (cards e outros)*/
+.conteudo-pagina{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px; 
+}
+
+ion-card{
+  background-color: #005e65;
+  width: 95%;
+  margin-top: 2%;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  color: #f3e3d4;
+}
+
+ion-icon{
+  color: #f3e3d4;
+}
+
+.header-cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.barra-prioridade {
+  flex-grow: 1;
+  height: 40px;
+  min-width: 90px;
+  border-radius: 20px;
+  border-color: #012e41;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 4px 0 #012e41;
+}
+
+.barra-prioridade-baixa{
+  flex-grow: 1;
+  height: 40px;
+  width: 100%;
+  min-width: 90px;
+  border-radius: 20px;
+  border-color: #012e41;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 4px 0 #012e41;
+  background: linear-gradient(to right, #27d3cd, #176772);
+}
+
+.barra-prioridade-media{
+  flex-grow: 1;
+  height: 40px;
+  width: 100%;
+  min-width: 90px;
+  border-radius: 20px;
+  border-color: #012e41;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 4px 0 #012e41;
+  background: linear-gradient(to right, #2797d3, #175272);
+}
+
+.barra-prioridade-alta{
+  flex-grow: 1;
+  height: 40px;
+  width: 100%;
+  min-width: 90px;
+  border-radius: 20px;
+  border-color: #012e41;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 4px 0 #012e41;
+  background: linear-gradient(to right, #2766d3, #174372);
+}
+
+//Estilo geral dos botões
+.estilos-botao{
+  --color: #f3e3d4;
+  --background: #005e65;
+  --box-shadow: 0px 4px 0 #012e41;
+  --border-color: #012e41;
+  --border-style: solid;
+  --border-width: 1px;
+}
+//
+
+.botoes-header-cards{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.card-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-editar-content{
+  display: flex;
+  flex-direction: column;
+}
+
+//Títulos
+.titulo-cards{
+  flex-grow: 1;
+  font-size: 1.3rem;
+  padding-right: 1rem;
+  font-weight: bolder;
+  color: #f3e3d4;
+  margin: 0;
+}
+
+.titulo-cards-2{
+  flex-grow: 1;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #f3e3d4;
+  margin-top: 20px;
+}
+//
+
+.detalhes {
+  margin: 10px;
+  padding: 20px;
+  background-color: #024a5973;
+  border-radius: 15px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.detalhes p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #fff;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 10px;
+}
+
+.barra-divisora{
+  color: #012e41;
+  width: 100%;
+}
+
+//Animação pra abrir os cards
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+//
+
+#last-card{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#titulo-last-card{
+  font-size: 1rem;
+}
+
+.imagem-tarefa {
+  width: 40%;
+  max-height: 200px;
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.modo-edicao {
+  padding: 16px;
+}
+
+.botoes-edicao {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  background: #005e65;
+}
+
+.botoes-edicao-forma{
+  width: 100%;
+  height: 60px;
+  border-radius: 15px;
+}
+
+// Estilos para as prioridades selecionadas na edição
+.barra-prioridade-alta.selecionado {
+  border: 3px solid #ff4444 !important;
+}
+
+.barra-prioridade-media.selecionado {
+  border: 3px solid #ffaa00 !important;
+}
+
+.barra-prioridade-baixa.selecionado {
+  border: 3px solid #00aa00 !important;
+}
+

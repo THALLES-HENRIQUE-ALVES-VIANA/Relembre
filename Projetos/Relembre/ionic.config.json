@@ -1,0 +1,7 @@
+{
+  "name": "Relembro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
